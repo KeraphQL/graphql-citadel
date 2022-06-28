@@ -1,7 +1,5 @@
 name: Publish package to GitHub Packages
 on:
-  # temporary add workflow_dispatch for debugging
-  workflow_dispatch:
   release:
     types: [created]
 concurrency:
