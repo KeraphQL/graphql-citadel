@@ -15,6 +15,15 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-node-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
