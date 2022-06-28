@@ -21,10 +21,10 @@ jobs:
             ${{ runner.os }}-build-node-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
       - uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
+          node-version: 16.x
+          registry-url: https://registry.npmjs.org
       - run: npm ci
       - run: npm publish
         env:
