@@ -1,6 +1,6 @@
 {
-  "name": "@KeraphQL/graphql-citadel",
-  "version": "0.1.2",
+  "name": "graphql-citadel",
+  "version": "0.1.0",
   "description": "Easy to use schema-first GraphQL schema directive for authentication and authorization",
   "main": "dist/index.js",
   "repository": {
@@ -9,9 +9,6 @@
   },
   "author": "KeisukeYamashita <19yamashita15@gmail.com>",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
     "build": "tsc"
   },
