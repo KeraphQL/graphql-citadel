@@ -1,0 +1,16 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec 'ts-node index.ts' --ext 'ts'"
+  },
+  "dependencies": {
+    "@graphql-tools/schema": "^8.5.0",
+    "apollo-server": "^3.9.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.8.1"
+  }
+}
