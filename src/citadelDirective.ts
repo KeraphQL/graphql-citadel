@@ -215,12 +215,13 @@ export function citadelDirective<TContext>({
                 };
             };
 
+    let citadelDirectiveTypeDefs = [
+        `directive @${authenticatedDirectiveName} on FIELD_DEFINITION`,
+        `directive @${publicDirectiveName} on FIELD_DEFINITION`,
+    ]
+
     return {
-        citadelDirectiveTypeDefs: [
-            `directive @${authenticatedDirectiveName} on FIELD_DEFINITION`,
-            `directive @${hasPermissionsDirectiveName}(permissions: [Permission]) on FIELD_DEFINITION`,
-            `directive @${publicDirectiveName} on FIELD_DEFINITION`,
-        ],
+        citadelDirectiveTypeDefs,
         citadelDirectiveTransformer: (schema: GraphQLSchema): GraphQLSchema =>
             mapSchema(schema, {
                 [MapperKind.MUTATION_ROOT_FIELD]: f(schema, authenticationResolver, permissionResolver, bypass),
