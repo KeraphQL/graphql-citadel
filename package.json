@@ -9,6 +9,9 @@
   },
   "author": "KeisukeYamashita <19yamashita15@gmail.com>",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsc"
   },
