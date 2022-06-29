@@ -28,6 +28,8 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm i
       - run: npm run build
+      # Clean up
+      - run: rm -r node_modules
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
