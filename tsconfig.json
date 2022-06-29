@@ -58,6 +58,7 @@
     "src/**/*"
   ],
   "exclude": [
-    "example/**/*"
+    "example/**/*",
+    "node_modules/**/*"
   ]
 }
