@@ -1,7 +1,6 @@
 import { ApolloServer, gql } from 'apollo-server'
 import { citadelDirective } from '../src'
 import { makeExecutableSchema } from '@graphql-tools/schema'
-import { GraphQLFieldResolver, GraphQLResolveInfo } from 'graphql';
 
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
