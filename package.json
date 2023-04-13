@@ -1,8 +1,8 @@
 {
   "name": "graphql-citadel",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Easy to use schema-first GraphQL schema directive for authentication and authorization",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/KeraphQL/graphql-citadel.git"
@@ -13,13 +13,13 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@graphql-tools/utils": "^8.8.0",
+    "@apollo/server": "^4.6.0",
+    "@graphql-tools/utils": "^9.2.1",
     "apollo-server-errors": "^3.3.1",
-    "graphql-citadel": "^0.1.3"
+    "graphql": "^16.6.0"
   },
   "devDependencies": {
-    "graphql": "^16.5.0",
-    "jest": "^28.1.1",
-    "typescript": "^4.7.4"
+    "jest": "^29.5.0",
+    "typescript": "^5.0.4"
   }
 }
