@@ -1,25 +1,28 @@
 import { GraphQLError } from "graphql";
+import { CitadelErrorCode } from "./code";
 
 /**
- *
- * @see {@link https://www.apollographql.com/docs/apollo-server/v2/data/errors/}
+ * Errors that will be returned if the user are not authenticated resolved by the authentication resolver.
  */
 export function AuthenticationError(
   message: string = "unauthenticated or the user does not exist"
 ): GraphQLError {
   return new GraphQLError(message, {
     extensions: {
-      code: "UNAUTHENTICATED",
+      code: CitadelErrorCode.UNAUTHENTICATED,
     },
   });
 }
 
+/**
+ * Errors returned if the user doesn't have required permissions resolved by the permission resolver.
+ */
 export function ForbiddenError(
   message: string = "user does not have enough permissions to act this request or the user does not exist"
 ): GraphQLError {
   return new GraphQLError(message, {
     extensions: {
-      code: "FORBIDDEN",
+      code: CitadelErrorCode.FORBIDDEN,
     },
   });
 }
