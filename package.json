@@ -3,6 +3,7 @@
   "version": "0.2.1",
   "description": "Easy to use schema-first GraphQL schema directive for authentication and authorization",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/KeraphQL/graphql-citadel.git"
