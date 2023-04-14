@@ -1,6 +1,6 @@
 {
   "name": "graphql-citadel",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Easy to use schema-first GraphQL schema directive for authentication and authorization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
