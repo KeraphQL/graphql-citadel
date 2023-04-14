@@ -45,14 +45,14 @@ export const defaultPublicDirectiveName = "public";
 /**
  * AuthenticationResolverFunc represents a function that will check user's identity.
  */
-type AuthenticationResolverFunc<TContext> = (
+export type AuthenticationResolverFunc<TContext> = (
   args: resolverFuncArgs<TContext>
 ) => Promise<boolean>;
 
 /**
  * PermissionResolverFunc represents a function that will resolve (return) the user's permissions.
  */
-type PermissionResolverFunc<TContext> = (
+export type PermissionResolverFunc<TContext> = (
   args: resolverFuncArgs<TContext>
 ) => Promise<string[]>;
 
