@@ -210,9 +210,7 @@ export function citadelDirective<TContext>({
                 return resolve(source, args, context, info);
               }
 
-              const msg =
-                "user does not have enough permissions to act this request or the user does not exist";
-              throw ForbiddenError(msg);
+              throw ForbiddenError();
             }
 
             return resolve(source, args, context, info);
@@ -235,7 +233,7 @@ export function citadelDirective<TContext>({
             return resolve(source, args, context, info);
           }
 
-          throw ForbiddenError("not allowed to perform this action");
+          throw AuthenticationError();
         },
       };
     };

@@ -4,13 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --exec 'ts-node index.ts' --ext 'ts'"
+    "start": "ts-node index.ts"
   },
   "dependencies": {
     "@graphql-tools/schema": "^8.5.0",
     "apollo-server": "^3.9.0"
   },
   "devDependencies": {
-    "ts-node": "^10.8.1"
+    "ts-node": "^10.8.1",
+    "typescript": "^5.0.4"
   }
 }

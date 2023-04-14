@@ -1,6 +1,6 @@
-import { ApolloServer, gql } from 'apollo-server'
-import { citadelDirective } from '../src'
-import { makeExecutableSchema } from '@graphql-tools/schema'
+import { ApolloServer, gql } from "apollo-server";
+import { citadelDirective } from "../src";
+import { makeExecutableSchema } from "@graphql-tools/schema";
 
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
@@ -21,15 +21,19 @@ const typeDefs = gql`
     title: String!
   }
 
+  directive @hasPermissions(permissions: [Permission]) on FIELD_DEFINITION
+
   # The "Query" type is special: it lists all of the available queries that
   # clients can execute, along with the return type for each. In this
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Mutation {
-    createBook (book: BookInput): Book @hasPermissions(permissions: [ADMIN])
+    createBook(book: BookInput): Book! @hasPermissions(permissions: [ADMIN])
   }
 
   type Query {
     books: [Book] @hasPermissions(permissions: [ADMIN])
+    defaultBooks: [Book]
+    publicBooks: [Book] @public
   }
 `;
 
@@ -38,35 +42,38 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     books: async (parent: any, args: any, context: any, info: any) => {
-      console.log('query context', context)
+      console.log("query context", context);
     },
   },
   Mutation: {
     createBook: async (parent: any, args: any, context: any, info: any) => {
-      console.log('context', context)
-    }
-  }
+      console.log("context", context);
+    },
+  },
 };
 
 interface AuthContext {
-  reason: string
+  reason: string;
 }
 
-const { citadelDirectiveTypeDefs, citadelDirectiveTransformer } = citadelDirective({
-  permissionResolver: async ({ source, args, context, directive }): Promise<string[]> => {
-    return []
-  }
-})
+const { citadelDirectiveTypeDefs, citadelDirectiveTransformer } =
+  citadelDirective({
+    permissionResolver: async ({
+      source,
+      args,
+      context,
+      directive,
+    }): Promise<string[]> => {
+      return [];
+    },
+  });
 
 let schema = makeExecutableSchema({
-  typeDefs: [
-    typeDefs,
-    citadelDirectiveTypeDefs
-  ],
-  resolvers
-})
+  typeDefs: [typeDefs, citadelDirectiveTypeDefs],
+  resolvers,
+});
 
-schema = citadelDirectiveTransformer(schema)
+schema = citadelDirectiveTransformer(schema);
 
 const server = new ApolloServer({
   schema,
